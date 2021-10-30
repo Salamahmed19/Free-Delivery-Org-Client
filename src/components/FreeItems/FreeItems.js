@@ -11,8 +11,6 @@ const FreeItems = () => {
         .then(data => setItem(data))
     },[])
 
-    console.log(items)
-
     const collectItems = (id) => {
         let collectedItems = [];
         if (id === items._id){
@@ -28,14 +26,15 @@ const FreeItems = () => {
         //   .then(result => console.log(result));
         };
     return (
-        <div>
-            <Container>
+            <Container className="mt-3">
+                <h2 className="text-center">Wish you everythings will success</h2>
+                <p className="my-3">You can get all those items when you became with us as a member. Our goal is for those people who want something for free that have need and send those things to other members as gift items.</p>
                 <Row>
                 {
                     items.map(item => <Col md={4} sm={6} xs={12} key={item._id}
                     >
-                        <Card className="my-4" style={{ width: '20rem' }}>
-                            <Card.Img variant="top" src={item.imgUrl} />
+                        <Card className="my-4 shadow-lg" style={{ width: '20rem' }}>
+                            <Card.Img className="p-3" variant="top" src={item.imgUrl} />
                             <Card.Body>
                             <Card.Title>{item.itemName}</Card.Title>
                             <Card.Text>{item.desc}</Card.Text>
@@ -55,7 +54,6 @@ const FreeItems = () => {
                 }
                 </Row>
             </Container>
-        </div>
     );
 };
 

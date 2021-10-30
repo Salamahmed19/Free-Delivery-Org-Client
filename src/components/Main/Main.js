@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route} from "react-router-dom";
 import AboutUs from '../AboutUs/AboutUs';
-import FreeItems from '../FreeItems/FreeItems';
 import GetGift from '../GetGift/GetGift';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
@@ -10,6 +9,7 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import Register from '../Register/Register';
 import SendGift from '../SendGift/SendGift';
 import Dashboard from '../Dashboard/Dashboard';
+import FreeItems from '../FreeItems/FreeItems';
 
 const Main = () => {
     return (
