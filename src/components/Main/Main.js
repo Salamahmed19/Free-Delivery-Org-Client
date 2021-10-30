@@ -6,8 +6,10 @@ import GetGift from '../GetGift/GetGift';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import Register from '../Register/Register';
 import SendGift from '../SendGift/SendGift';
+import Dashboard from '../Dashboard/Dashboard';
 
 const Main = () => {
     return (
@@ -21,15 +23,18 @@ const Main = () => {
             <Route path="/freeitems">
                 <FreeItems></FreeItems>
             </Route>
-            <Route path="/sendgift">
+            <PrivateRoute path="/sendgift">
                 <SendGift></SendGift>
-            </Route>
-            <Route path="/getgift">
+            </PrivateRoute>
+            <PrivateRoute path="/getgift">
                 <GetGift></GetGift>
-            </Route>
+            </PrivateRoute>
             <Route path="/aboutus">
                 <AboutUs></AboutUs>
             </Route>
+            <PrivateRoute path="/dashboard">
+                <Dashboard></Dashboard>
+            </PrivateRoute>
             <Route path="/login">
                 <Login></Login>
             </Route>
