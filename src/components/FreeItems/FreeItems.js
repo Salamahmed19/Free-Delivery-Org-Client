@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, Container, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
+import { Card, Col, Container, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const FreeItems = () => {
@@ -11,27 +11,24 @@ const FreeItems = () => {
         .then(data => setItem(data))
     },[])
 
-    const collectItems = (id) => {
-        let collectedItems = [];
-        if (id === items._id){
-
-        }
-        console.log(id)
-        // fetch(``, {
-        //   method: "POST",
-        //   headers: { "content-type": "application/json" },
-        //   body: JSON.stringify(id),
-        // })
-        //   .then(res => res.json())
-        //   .then(result => console.log(result));
+    const collectItems = (index) => {
+        const data = items[index];
+        data.status ="Pending";
+        fetch('http://localhost:5000/reqgift', {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then(res => res.json())
+          alert("Product is Added!");
         };
     return (
             <Container className="mt-3">
-                <h2 className="text-center">Wish you everythings will success</h2>
-                <p className="my-3">You can get all those items when you became with us as a member. Our goal is for those people who want something for free that have need and send those things to other members as gift items.</p>
+                <h2 className="text-center fs-1">Wish your dream of products will success</h2>
+                <p className="my-3 fs-4">You can get all those items when you became with us as a member. Our goal is for those people who want something for free that have need and send those things to other members as gift items.</p>
                 <Row>
                 {
-                    items.map(item => <Col md={4} sm={6} xs={12} key={item._id}
+                    items.map((item, index) => <Col md={4} sm={6} xs={12} key={item._id}
                     >
                         <Card className="my-4 shadow-lg" style={{ width: '20rem' }}>
                             <Card.Img className="p-3" variant="top" src={item.imgUrl} />
@@ -44,9 +41,9 @@ const FreeItems = () => {
                             <ListGroupItem>Sender Name: {item.name}</ListGroupItem>
                             <ListGroupItem>Pickup Location: {item.address}</ListGroupItem>
                             </ListGroup>
-                            <div className="d-flex">
-                            <Button onClick={ () => collectItems(item._id) }>Get This Gift Free</Button>
-                            <Card.Link className="ms-auto" as={Link} to="/sendgift"><Button>Wish to Send Gift</Button></Card.Link>
+                            <div  className="text-center m-2">
+                            <button className="btn btn-primary" onClick={ () => collectItems(index) }>Want This Collect</button>
+                            <Card.Link as={Link} to="/sendgift"><button className="btn btn-secondary ms-3">Wish to Send</button></Card.Link>
                             </div>
                         </Card>
                     </Col>

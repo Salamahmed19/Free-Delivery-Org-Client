@@ -10,6 +10,7 @@ import Register from '../Register/Register';
 import SendGift from '../SendGift/SendGift';
 import Dashboard from '../Dashboard/Dashboard';
 import FreeItems from '../FreeItems/FreeItems';
+import Update from '../Update/Update';
 
 const Main = () => {
     return (
@@ -40,6 +41,9 @@ const Main = () => {
             </Route>
             <Route path="/register">
                 <Register></Register>
+            </Route>
+            <Route path="/update/:productID">
+                <Update></Update>
             </Route>
             <Route path="*">
                 <NotFound></NotFound>

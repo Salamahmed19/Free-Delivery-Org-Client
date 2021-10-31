@@ -7,7 +7,7 @@ import "./Menu.css"
 const Menu = () => {
     const {user, logOut} = useAuth();
     return (
-        <Navbar className="navbar" expand="lg">
+        <Navbar className="navbar" sticky="top" expand="lg">
             <Container className="">
                 <Navbar.Brand  as={Link} to="/">FDFP-<span className="org">ORG</span></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -16,7 +16,7 @@ const Menu = () => {
                     <Nav.Link as={Link} to="/home">Home</Nav.Link>
                     <Nav.Link as={Link} to="/freeitems">Free-Items</Nav.Link>
                     <Nav.Link as={Link} to="/sendgift">Send-Gift</Nav.Link>
-                    <Nav.Link as={Link} to="/getgift">Get-Gift</Nav.Link>
+                    <Nav.Link as={Link} to="/getgift">Added-Gift</Nav.Link>
                     <Nav.Link as={Link} to="/aboutus">About-Us</Nav.Link>
                 </Nav>
                 { user?.email ? <Nav>
