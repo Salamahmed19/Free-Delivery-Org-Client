@@ -9,13 +9,13 @@ const Update = () => {
     const [product, setProduct] = useState([])
 
     useEffect(() => {
-        fetch (`http://localhost:5000/singlepd/${productID}`)
+        fetch (`https://shocking-tomb-50590.herokuapp.com/singlepd/${productID}`)
         .then(res=>res.json())
         .then(data => setProduct(data))
     },[])
 
     const onSubmit = data => {
-        fetch(`http://localhost:5000/updatepd/${productID}`, {
+        fetch(`https://shocking-tomb-50590.herokuapp.com/updatepd/${productID}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

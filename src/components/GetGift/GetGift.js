@@ -6,13 +6,13 @@ const GetGift = () => {
     const [proccessed, setProccessed] = useState(null);
 
     useEffect( () => {
-        fetch('http://localhost:5000/getitems')
+        fetch('https://shocking-tomb-50590.herokuapp.com/getitems')
         .then (res => res.json())
         .then (data => setItems(data))
     },[deleted, proccessed])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteitem/${id}`, {
+        fetch(`https://shocking-tomb-50590.herokuapp.com/deleteitem/${id}`, {
           method: "DELETE",
           headers: { "content-type": "application/json" },
         })
@@ -30,7 +30,7 @@ const GetGift = () => {
 
       const handleUpdateStatus = index => {
         const data = items[index];
-          fetch('http://localhost:5000/updatestatus', {
+          fetch('https://shocking-tomb-50590.herokuapp.com/updatestatus', {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

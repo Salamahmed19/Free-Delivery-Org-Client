@@ -6,7 +6,7 @@ const FreeItems = () => {
     const [items, setItem] = useState([])
 
     useEffect(() => {
-        fetch ('http://localhost:5000/freeitems')
+        fetch ('https://shocking-tomb-50590.herokuapp.com/freeitems')
         .then(res => res.json())
         .then(data => setItem(data))
     },[])
@@ -14,7 +14,7 @@ const FreeItems = () => {
     const collectItems = (index) => {
         const data = items[index];
         data.status ="Pending";
-        fetch('http://localhost:5000/reqgift', {
+        fetch('https://shocking-tomb-50590.herokuapp.com/reqgift', {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(data),

@@ -6,7 +6,7 @@ const Review = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [item, setItem] = useState([]);
     const onSubmit = data => {
-    fetch("http://localhost:5000/pdrequest", {
+    fetch("https://shocking-tomb-50590.herokuapp.com/pdrequest", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -16,7 +16,7 @@ const Review = () => {
     };
 
     useEffect(() => {
-        fetch("http://localhost:5000/reviewitems")
+        fetch("https://shocking-tomb-50590.herokuapp.com/reviewitems")
         .then(res => res.json())
         .then(data => setItem(data))
     },[])

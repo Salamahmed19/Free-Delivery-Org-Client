@@ -9,13 +9,13 @@ const Dashboard = () => {
     const [isDeleted, setIsDeleted] = useState(null);
 
     useEffect(() => {
-        fetch ('http://localhost:5000/freeitems')
+        fetch ('https://shocking-tomb-50590.herokuapp.com/freeitems')
         .then(res => res.json())
         .then(data => setItem(data))
     },[isDeleted])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deletepd/${id}`, {
+        fetch(`https://shocking-tomb-50590.herokuapp.com/deletepd/${id}`, {
           method: "DELETE",
           headers: { "content-type": "application/json" },
         })
@@ -38,14 +38,6 @@ const Dashboard = () => {
                     <h3 className="text-center">Dashboard</h3>
                     <div className="border rounded border-dark">
                         {user?.displayName && <div className="p-3 fw-bold">Logged User: {user.displayName}</div> }
-                        <h4 className="ms-5">Added History</h4>
-                        <div className="ps-5 fw-bold">
-                        <li>Total Product</li>
-                        <li>Product Status</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        </div>
                     </div>
                 </Col>
                 <Col md={8} sm={12}>
@@ -69,8 +61,8 @@ const Dashboard = () => {
                                             <tr>
                                                 <td>{index + 1}</td>
                                                 <td>{pd.itemName}</td>
-                                                <td>{pd.address}</td>
                                                 <td>{pd.category}</td>
+                                                <td>{pd.address}</td>
                                                 <td>{pd.name}</td>
                                                 <td><Link to={`/update/${pd._id}`}><small><button className="bg-info">Update</button></small></Link> </td>
                                                 <td><small><button className="bg-danger" onClick={()=>handleDelete(pd._id)}>Delete</button></small></td>

@@ -8,7 +8,7 @@ const SendGift = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {user} = useAuth()
     const onSubmit = data => {
-    fetch("http://localhost:5000/sendgift", {
+    fetch("https://shocking-tomb-50590.herokuapp.com/sendgift", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
